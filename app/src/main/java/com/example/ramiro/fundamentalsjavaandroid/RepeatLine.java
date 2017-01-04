@@ -19,11 +19,12 @@ public class RepeatLine extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repeat_line);
         amountOfLines = (EditText)findViewById(R.id.amounOfLines);
+        result = (TextView)findViewById(R.id.result);
         makeOperation = (Button)findViewById(R.id.makeOperation);
         makeOperation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0)
             {
-                int numberOfLines = Integer.getInteger(amountOfLines.getText().toString());
+                int numberOfLines = Integer.parseInt(amountOfLines.getText().toString());
                 writeTheText(numberOfLines);          }
         });
 
@@ -33,9 +34,9 @@ public class RepeatLine extends AppCompatActivity {
         if(value <= 0){
             result.setText("Please, enter a positive number");
         }else{
+            result.setLines(value);
             for(int i = 1; i <= value; i++){
-                result.setText(("Line " + i + "/n"));
-            }
+                            }
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.ramiro.fundamentalsjavaandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +18,7 @@ public class Operation extends AppCompatActivity{
     EditText data3;
     EditText result;
     Button makeOperation;
+    Button navigationButton;
 
 
     @Override
@@ -28,6 +30,7 @@ public class Operation extends AppCompatActivity{
         data2 = (EditText)findViewById(R.id.operation);
         data3 = (EditText)findViewById(R.id.secondValue);
         makeOperation = (Button) findViewById(R.id.makeOperation);
+        navigationButton = (Button)findViewById(R.id.navigationButton);
 
         makeOperation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0)
@@ -40,6 +43,15 @@ public class Operation extends AppCompatActivity{
                     int value2 = Integer.parseInt(data3.getText().toString());
                     calcular(value1, value2, data2.getText().toString());
                 }
+            }
+        });
+
+        navigationButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0)
+            {
+                Intent intent = new Intent(Operation.this, RepeatLine.class);
+                startActivity(intent);
+
             }
         });
     }
